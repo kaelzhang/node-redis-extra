@@ -14,7 +14,7 @@
 
 # redis-extra
 
-<!-- description -->
+redis with promisified commands.
 
 ## Install
 
@@ -25,8 +25,17 @@ $ npm install redis-extra --save
 ## Usage
 
 ```js
-const redis_extra = require('redis-extra')
+const redis = require('redis-extra')
+const red = redis(options)
+
+red.set('foo', 1)
+.then(() => {
+  return red.get('foo')
+})
+.then(value => console.log(value))  // 1
 ```
+
+- options `Object=` [redis options](https://www.npmjs.com/package/redis#options-object-properties)
 
 ## License
 

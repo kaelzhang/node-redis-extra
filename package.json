@@ -1,7 +1,7 @@
 {
   "name": "redis-extra",
-  "version": "1.0.0",
-  "description": "`redis-extra` promisify redis commands.",
+  "version": "1.0.1",
+  "description": "redis with promisified commands.",
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
