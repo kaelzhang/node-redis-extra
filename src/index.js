@@ -4,12 +4,10 @@ const {RedisClient} = require('redis')
 const commands = require('redis-commands')
 const thenify = require('thenify')
 
-const redis_config = require('../config').redis
-
-const client = redis.createClient(redis_config).on('error', e => {
-  console.error(`Fails to connect to redis server.\n\n${e.stack || e}`)
-  process.exit(1)
-})
+// const client = redis.createClient(redis_config).on('error', e => {
+//   console.error(`Fails to connect to redis server.\n\n${e.stack || e}`)
+//   process.exit(1)
+// })
 
 
 class RedisExtra extends RedisClient {
@@ -30,7 +28,7 @@ function normalize_redis_command (command) {
   return command.replace(/(?:^([0-9])|[^a-zA-Z0-9_$])/g, '_$1')
 }
 
-commands.forEach(command => {
+commands.list.forEach(command => {
   command = normalize_redis_command(command)
 
   const method = RedisExtra.prototype[command]
