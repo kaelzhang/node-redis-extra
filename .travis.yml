@@ -5,5 +5,5 @@ node_js:
   - "6"
   - "7"
 before_install:
-  - apt-get update
-  - apt-get install redis-server
+  - apt-get -qq update
+  - apt-get install -y redis-server
